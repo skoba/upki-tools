@@ -1,5 +1,10 @@
 # UPKI証明書管理システム
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/skoba/upki-tools/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Ruby](https://img.shields.io/badge/ruby-3.4.4-red.svg)](https://www.ruby-lang.org/)
+[![Rails](https://img.shields.io/badge/rails-8.0.2-red.svg)](https://rubyonrails.org/)
+
 日本の大学PKI（UPKI）システム用のSSL証明書管理Webアプリケーションです。証明書の申請、発行、更新、失効管理を効率的に行うことができます。
 
 ## 概要
@@ -45,7 +50,7 @@
 
 ```bash
 # リポジトリのクローン
-git clone <repository-url>
+git clone https://github.com/skoba/upki-tools.git
 cd upki-tools
 
 # Dockerで起動（初回は自動でビルド）
@@ -79,7 +84,7 @@ docker-compose down -v
 #### 1. リポジトリのクローン
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/skoba/upki-tools.git
 cd upki-tools
 ```
 
@@ -259,11 +264,53 @@ SQLite3データベースファイル `db/development.sqlite3` を定期的に�
    docker-compose up
    ```
 
+## 貢献方法
+
+このプロジェクトへの貢献を歓迎します！詳細は[CONTRIBUTING.md](CONTRIBUTING.md)を参照してください。
+
+### 簡単な貢献方法
+- 🐛 バグ報告や機能要求は[Issues](https://github.com/skoba/upki-tools/issues)へ
+- 💡 改善提案や質問は[Discussions](https://github.com/skoba/upki-tools/discussions)へ
+- 🔒 セキュリティ関連の報告は直接メール（skoba@moss.gr.jp）へ
+
+### ⚠️ セキュリティ警告
+**重要**: Issues報告時は**絶対に秘密鍵・実際の証明書・パスワード**を含めないでください。詳細は[CONTRIBUTING.md](CONTRIBUTING.md#️-セキュリティ関連の重要な注意事項)を必読。
+
+## 免責事項
+
+### ⚠️ 重要な注意事項
+
+本ソフトウェアは**現状のまま（AS IS）**提供され、以下の点にご注意ください：
+
+#### セキュリティと責任について
+- **本番環境での使用は自己責任**で行ってください
+- **セキュリティ監査**を実施してから運用することを強く推奨します
+- **重要な証明書の管理**には十分な検証とテストを行ってください
+- **データのバックアップ**は運用者の責任で実施してください
+
+#### 証明書管理の特殊性
+- PKI証明書の紛失や不正利用は**重大なセキュリティインシデント**につながる可能性があります
+- **証明書の有効期限管理**は運用者が責任を持って行ってください
+- **秘密鍵の保護**は最重要事項です
+
+#### サポートと保証
+- **動作保証はありません** - 各環境での動作検証は利用者が実施
+- **技術サポートは限定的** - コミュニティベースでの支援
+- **データ損失等の損害** - 開発者・貢献者は一切の責任を負いません
+
+### 🏥 大学・医療機関での利用について
+
+- **情報セキュリティポリシー**に準拠した利用を行ってください
+- **個人情報保護**に関する法令を遵守してください
+- **システム管理者**による適切な運用管理が必要です
+
 ## ライセンス
 
 このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルを参照してください。
 
 このソフトウェアは、大学・研究機関での自由な利用、改変、再配布を推奨しています。商用利用も含めて制限はありません。
+
+**MITライセンスの免責条項**: 本ソフトウェアは無保証で提供され、開発者は一切の責任を負いません。
 
 ## 連絡先
 
