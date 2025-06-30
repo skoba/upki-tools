@@ -1,15 +1,23 @@
 # UPKI証明書管理システム
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/skoba/upki-tools/releases)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Ruby](https://img.shields.io/badge/ruby-3.4.4-red.svg)](https://www.ruby-lang.org/)
-[![Rails](https://img.shields.io/badge/rails-8.0.2-red.svg)](https://rubyonrails.org/)
-
-日本の大学PKI（UPKI）システム用のSSL証明書管理Webアプリケーションです。証明書の申請、発行、更新、失効管理を効率的に行うことができます。
+国立情報学研究所が運営しているUPKIシステム用のSSL証明書管理Webアプリケーションです。証明書の申請、発行、更新、失効管理を効率的に行うことができます。
 
 ## 概要
 
-本システムは医療オープンソースソフトウェア協議会において、大学PKIインフラストラクチャ内でのSSL証明書ライフサイクル管理を目的として開発されました。
+本システムは某研究機関において、SSL証明書ライフサイクル管理を目的として開発されました。
+
+サブドメインなどの証明書期限切れを防止するために一括管理するのは大変ですよね。UPKIからのTSVをExcelを使ったりして管理している方も多いと思います。そこで、Webで管理して更新1ヶ月以内のサブドメインを黄色く表示し、期限切れを赤、失効済みのサブドメインを黒で表示するようにRailsでソフトウェアを組んでみました。
+
+設定内容は架空のものにいれ変えております。
+
+/config/profile.yaml内に設定を書いておりますのでUPKIのマニュアルを参照の上で適切にDNの内容を反映させてください。
+
+Railsのアップデートやあれこれで手が止まっておりましたが、Claude.codeのおかげで再度動くようになりました。
+
+dockerの設定もつけていますので、お試しはそちらでもどうぞ。認証系は設定しておりませんので、実験環境の公開範囲にはお気をつけください。
+
+なお、UPKIサーバへの接続設定はできているものとします。
+
 
 ### 主な機能
 
@@ -107,7 +115,7 @@ bin/rails db:prepare
 
 #### 4. 設定ファイルの確認
 
-PKI固有の設定は `config/profile.yml` で管理されています：
+PKI固有のDN設定は `config/profile.yml` で管理されています：
 
 ```yaml
 # 組織情報の設定例
@@ -314,10 +322,9 @@ SQLite3データベースファイル `db/development.sqlite3` を定期的に�
 
 ## 連絡先
 
-開発・保守に関するお問い合わせ：
+開発・保守に関するお問い合わせはissuesに書いておいてください。対応するとは限りません。
 - 開発者: KOBAYASHI Shinji
 - 組織: 医療オープンソースソフトウェア協議会
-- 所在地: 日本
 
 ## 更新履歴
 
