@@ -90,6 +90,3 @@ auto-save-list
 *.backup
 *.bak
 *~backup
-
-# Claude AIの設定ファイル
-CLAUDE.md
