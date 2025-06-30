@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @domain.full_name %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @domain.person_id %>
+</p>
+
+<%= link_to 'Edit', edit_domain_path(@domain) %> |
+<%= link_to 'Back', domains_path %>

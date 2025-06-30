@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h1>一括更新(TSV)</h1>
+<%= link_to '一覧に戻る', certificates_path, class: "btn btn-primary" %>
+
+<%= form_with url: batch_processes_path, method: :put, multipart: true  do |f| %>
+<div class="form-group">
+<%= f.label '一括更新するTSVファイルを指定してください。' %>
+<%= f.file_field :tsv_file, class: 'form-control-file' %>
+<%= f.submit '送信', method: :put, class: 'btn btn-primary' %>
+</div>
+<% end  %>
+

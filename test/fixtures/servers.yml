@@ -1,0 +1,93 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apply_id: MyString
+  operation_id: MyString
+  ignore_flag: 1
+  subject_dn: MyString
+  domain_id: MyString
+  submitted: 2021-03-18 13:59:35
+  completed: 2021-03-18 13:59:35
+  operator_id: MyString
+  category: 1
+  task_model: 1
+  profile_id: MyString
+  status: 1
+  operator_name: MyString
+  operator_affiliation: MyString
+  operator_email: MyString
+  operator_fqdn: MyString
+  operator_software: MyString
+  csr: MyString
+  dnsname: MyString
+  comfirmed_items_flag: 1
+  transaction_id: MyString
+  api_erro_code: MyString
+  cetification: MyString
+  serial_no: MyString
+  finger_print: MyString
+  cert_start: 2021-03-18
+  cert_exp: 2021-03-18
+  access_pin: MyString
+  other_subject_address1: MyString
+  other_subject_address2: MyString
+  revocation_id: MyString
+  revocation_submission: 2021-03-18 13:59:35
+  revocation_completed: 2021-03-18 13:59:35
+  revocation_operator_id: MyString
+  revocation_reason_code: 1
+  revocation_reason: MyString
+  revocation_confirm_code: MyString
+  revocation_transaction_id: MyString
+  revocation_authority_error_code: MyString
+  revocation_operator_email: MyString
+  old_certificate_serial_no: MyString
+  certificate_replace_mail_flag: 1
+  download_method: MyString
+  last_updated: 2021-03-18 13:59:35
+
+two:
+  apply_id: MyString
+  operation_id: MyString
+  ignore_flag: 1
+  subject_dn: MyString
+  domain_id: MyString
+  submitted: 2021-03-18 13:59:35
+  completed: 2021-03-18 13:59:35
+  operator_id: MyString
+  category: 1
+  task_model: 1
+  profile_id: MyString
+  status: 1
+  operator_name: MyString
+  operator_affiliation: MyString
+  operator_email: MyString
+  operator_fqdn: MyString
+  operator_software: MyString
+  csr: MyString
+  dnsname: MyString
+  comfirmed_items_flag: 1
+  transaction_id: MyString
+  api_erro_code: MyString
+  cetification: MyString
+  serial_no: MyString
+  finger_print: MyString
+  cert_start: 2021-03-18
+  cert_exp: 2021-03-18
+  access_pin: MyString
+  other_subject_address1: MyString
+  other_subject_address2: MyString
+  revocation_id: MyString
+  revocation_submission: 2021-03-18 13:59:35
+  revocation_completed: 2021-03-18 13:59:35
+  revocation_operator_id: MyString
+  revocation_reason_code: 1
+  revocation_reason: MyString
+  revocation_confirm_code: MyString
+  revocation_transaction_id: MyString
+  revocation_authority_error_code: MyString
+  revocation_operator_email: MyString
+  old_certificate_serial_no: MyString
+  certificate_replace_mail_flag: 1
+  download_method: MyString
+  last_updated: 2021-03-18 13:59:35

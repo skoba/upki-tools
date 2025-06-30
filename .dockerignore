@@ -1,0 +1,63 @@
+# Git関連
+.git
+.gitignore
+README.md
+LICENSE
+CLAUDE.md
+
+# ログとデータベース（機密情報）
+log/*
+db/*.sqlite3
+db/*.sqlite3-journal
+db/*.sqlite3-*
+db/*.db
+tmp/*
+
+# 依存関係（Dockerで再インストール）
+.bundle
+vendor/bundle
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 証明書関連ファイル（セキュリティ）
+*.key
+*.pem
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# 設定ファイル（機密情報）
+.env
+.env.local
+.env.production
+config/master.key
+config/secrets.yml
+
+# 開発環境固有
+.ruby-version
+.rvmrc
+.rbenv-version
+
+# OS固有
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# バックアップ
+*.backup
+*.bak
+
+# テスト関連
+coverage/
+.rspec
+spec/tmp/
+
+# エディタ
+.vscode/
+.idea/
+*.sublime-*

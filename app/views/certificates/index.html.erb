@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+<h1>サーバ証明書一覧</h1>
+
+<%= link_to '新規証明書発行', new_certificate_path, class: "btn btn-primary" %>
+<%= link_to '一括更新(TSVアップロード)', batch_processes_path, method: :put, class: "btn btn-primary" %>
+<%= form_with url: batch_revocation_index_path, method: :get do |form| %>
+  <%= form.submit '一括失効処理', class: "btn btn-danger" %>
+<table class="table table-responsible">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th colspan="3">利用管理者</th>
+      <th colspan="2">証明書</th>
+      <!-- <th></th> -->
+      <th></th>
+      <!-- <th></th> -->
+      <th colspan="3"></th>
+    </tr>
+    <tr>
+      <th>失効対象</th>
+      <th>サーバFQDN</th>
+      <th>発行・更新申請日</th>
+      <th>氏名</th>
+      <th>e-mail</th>
+      <th>Software</th>
+      <th>有効開始</th>
+      <th>有効期限</th>
+      <!-- <th>URL期限</th> -->
+      <th>失効処理完了日時</th>
+      <!-- <th>最終更新日</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @certificates.each do |certificate| %>
+       <tr class=<%= certificate_color(certificate) %> >
+	   <% if certificate.revocation_completed %>
+             <td class="checkbox hide-when-print disabled"/>
+	     <%= check_box_tag "ids[]", false, false, {disabled: true} %>
+	   <% else %>
+	     <td class="checkbox hide-when-print"/>
+	     <%= check_box_tag 'ids[]', certificate.id %>
+	   <% end %>
+	 </td>
+        <td><%= certificate.operator_fqdn %></td>
+        <td><%= certificate.submitted.to_s(:jp_order) %></td>
+        <td><%= certificate.operator_name %></td>
+        <td><%= certificate.operator_email %></td>
+        <td><%= certificate.operator_software %></td>
+	<% if certificate.cert_start %>
+          <td><%= l certificate.cert_start %></td>
+	<% else %>
+          <td><%= certificate.cert_start %></td>
+	<% end %>
+	<% if certificate.cert_exp %>
+          <td><%= l certificate.cert_exp %></td>
+	<% else %>
+          <td><%= certificate.cert_exp %></td>
+	<% end %>
+	<!-- <% if certificate.url_exp %> -->
+        <!--   <td><%= l certificate.url_exp %></td> -->
+	<!-- <% else %> -->
+        <!--   <td><%= certificate.url_exp %></td> -->
+	<!-- <% end %> -->
+	<% if certificate.revocation_completed %>
+         <td><%= l certificate.revocation_completed %></td>
+	<% else %>
+         <td><%= certificate.revocation_completed %></td>
+	<% end %>
+        <!-- <td><%= l certificate.last_updated %></td> -->
+        <td><%= link_to '詳細', certificate, class: "btn btn-info"  %></td>
+        <td><%= link_to '更新', edit_certificate_path(certificate), class: update_button_class(certificate) %></td>
+        <td><%= link_to '失効', certificate_path(certificate), method: :delete, class: delete_button_class(certificate) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<br>
+

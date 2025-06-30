@@ -1,0 +1,82 @@
+<h1>一括失効</h1>
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to '一覧に戻る', certificates_path, class: "btn btn-primary" %>
+<%= link_to 'UPKIへ', 'https://scia.secomtrust.net/upki-odcert/lra/SSLLogin.do', class: "btn btn-success" %>
+　  <div class="container">
+<%= form_with url: batch_revocation_destroy_path, method: :get do |f| %>
+<%= f.submit '一括更新用TSVダウンロード', class: "btn btn-danger"  %>
+  <div class="field form-group">
+    <%= f.label :operator_name, '管理者氏名', class: 'form-label' %>
+    <%= f.text_field :operator_name, class: 'form-control' %>
+  </div>
+  
+  <div class="field form-group">
+    <%= f.label :operator_email, '管理者mail（必須）', class: 'form-label' %>
+    <%= f.text_field :operator_email, class: 'form-control', required: true %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :revocation_reason_code, '失効理由', class: 'form-label'  %>
+    <%= f.select :revocation_reason_code, {'未定義': 0, '鍵の危殆化': 1, '主体DNの変更': 2, '証明書の更新または証明書記載内容の変更': 3, '証明書の利用終了': 4}, class: 'form-control', required: true %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :revocation_reason_code, '失効理由コメント', class: 'form-label'  %>
+    <%= f.text_field :revocation_reason, class: 'form-control' %>
+  </div>
+<% end %>
+</div>
+<table>
+  <table class="table table-responsible">
+  <thead>
+    <tr>
+      <th>サーバFQDN</th>
+      <th>発行・更新申請日</th>
+      <th>氏名</th>
+      <th>e-mail</th>
+      <th>Software</th>
+      <th>有効開始</th>
+      <th>有効期限</th>
+      <!-- <th>URL期限</th> -->
+      <!-- <th>失効処理完了日時</th> -->
+      <!-- <th>最終更新日</th> -->
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @certificates.each do |certificate| %>
+       <tr class=<%= certificate_color(certificate) %> >
+         <td><%= certificate.operator_fqdn %></td>
+        <td><%= certificate.submitted.to_s(:jp_order) %></td>
+        <td><%= certificate.operator_name %></td>
+        <td><%= certificate.operator_email %></td>
+        <td><%= certificate.operator_software %></td>
+	<% if certificate.cert_start %>
+          <td><%= l certificate.cert_start %></td>
+	<% else %>
+          <td><%= certificate.cert_start %></td>
+	<% end %>
+	<% if certificate.cert_exp %>
+          <td><%= l certificate.cert_exp %></td>
+	<% else %>
+          <td><%= certificate.cert_exp %></td>
+	<% end %>
+	<!-- <% if certificate.url_exp %> -->
+        <!--   <td><%= l certificate.url_exp %></td> -->
+	<!-- <% else %> -->
+        <!--   <td><%= certificate.url_exp %></td> -->
+	<!-- <% end %> -->
+	<% if certificate.revocation_completed %>
+         <td><%= l certificate.revocation_completed %></td>
+	<% else %>
+         <td><%= certificate.revocation_completed %></td>
+	<% end %>
+        <!-- <td><%= l certificate.last_updated %></td> -->
+        <!-- <td><%= link_to '詳細', certificate, class: "btn btn-info"  %></td> -->
+        <!-- <td><%= link_to '更新', edit_certificate_path(certificate), class: update_button_class(certificate) %></td> -->
+        <!-- <td><%= link_to '失効', certificate_path(certificate), method: :delete, class: delete_button_class(certificate) %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>

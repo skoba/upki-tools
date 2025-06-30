@@ -1,0 +1,7 @@
+<h1>証明書更新</h1>
+
+<%= render 'edit_form', certificate: @certificate %>
+
+<%= link_to 'サーバ詳細', @certificate, class: "btn btn-primary" %> 
+<%= link_to '一覧に戻る', certificates_path, class: "btn btn-primary" %>
+<%= link_to 'UPKIへ', 'https://scia.secomtrust.net/upki-odcert/lra/SSLLogin.do', class: "btn btn-success" %>

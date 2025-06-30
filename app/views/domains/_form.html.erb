@@ -1,0 +1,32 @@
+<%= form_with(model: domain) do |form| %>
+  <% if domain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(domain.errors.count, "error") %> prohibited this domain from being saved:</h2>
+
+      <ul>
+        <% domain.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='container'>
+    <form class='form-horizontal'>
+      <div class="field form-group">
+	<%= form.label :full_name, 'FQDN', class: 'form-label' %>
+	<%= form.text_field :full_name, class: 'form-control' %>
+      </div>
+      
+      <div class="field form-group">
+	<%= form.label :person_id, '担当者', class: 'form-lable' %>
+	<%= form.text_field :person_id, class: 'form-control' %>
+      </div>
+      
+      <div class="actions">
+	<%= form.submit '新規ドメイン作成', class: 'btn btn-primary' %>
+      </div>
+    </form>
+  </div>
+<% end %>
+  

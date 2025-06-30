@@ -1,0 +1,234 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>発行・更新申請-申請ID:</strong>
+  <%= @certificate.apply_id %>
+</p>
+
+<p>
+  <strong>発行・更新申請-操作ID:</strong>
+  <%= @certificate.operation_id %>
+</p>
+
+<p>
+  <strong>ignoreInvalidRecordフラグ:</strong>
+  <%= @certificate.ignore_flag %>
+</p>
+<p>
+  <strong>主体者DN:</strong>
+  <%= @certificate.subject_dn %>
+</p>
+
+<p>
+  <strong>ドメインID:</strong>
+  <%= @certificate.domain_id %>
+</p>
+
+<p>
+  <strong>発行・更新申請-日時:</strong>
+  <%= @certificate.submitted %>
+</p>
+
+<p>
+  <strong>発行・更新申請-処理完了日時:</strong>
+  <%= @certificate.completed %>
+</p>
+
+<p>
+  <strong>発行・更新申請-登録担当者ID:</strong>
+  <%= @certificate.operator_id %>
+</p>
+
+<p>
+  <strong>申請種別:</strong>
+  <%= @certificate.category %>
+</p>
+
+<p>
+  <strong>業務モデル:</strong>
+  <%= @certificate.task_model %>
+</p>
+
+<p>
+  <strong>証明書プロファイルID:</strong>
+  <%= @certificate.profile_id %>
+</p>
+
+<p>
+  <strong>状態:</strong>
+  <%= @certificate.status %>
+</p>
+
+<p>
+  <strong>利用管理者氏名:</strong>
+  <%= @certificate.operator_name %>
+</p>
+
+<p>
+  <strong>利用管理者所属:</strong>
+  <%= @certificate.operator_affiliation %>
+</p>
+
+<p>
+  <strong>利用管理者mail:</strong>
+  <%= @certificate.operator_email %>
+</p>
+
+<p>
+  <strong>利用管理者FQDN:</strong>
+  <%= @certificate.operator_fqdn %>
+</p>
+
+<p>
+  <strong>利用管理者ソフトウェア名・バージョン:</strong>
+  <%= @certificate.operator_software %>
+</p>
+
+<p>
+  <strong>CSR:</strong>
+  <%= @certificate.csr %>
+</p>
+
+<p>
+  <strong>dNSName:</strong>
+  <%= @certificate.dnsname %>
+</p>
+
+<p>
+  <strong>発行・更新申請-確認項目フラグ:</strong>
+  <%= @certificate.comfirmed_items_flag %>
+</p>
+
+<p>
+  <strong>発行・更新申請-トランザクションID:</strong>
+  <%= @certificate.transaction_id %>
+</p>
+
+<p>
+  <strong>発行・更新申請-認証局連携APIエラーコード:</strong>
+  <%= @certificate.api_erro_code %>
+</p>
+
+<p>
+  <strong>発行・更新申請-証明書:</strong>
+  <%= @certificate.cetification %>
+</p>
+
+<p>
+  <strong>発行・更新申請-シリアル番号:</strong>
+  <%= @certificate.serial_no %>
+</p>
+
+<p>
+  <strong>発行・更新申請-FingerPrint:</strong>
+  <%= @certificate.finger_print %>
+</p>
+
+<p>
+  <strong>発行・更新申請-証明書有効開始:</strong>
+  <%= @certificate.cert_start %>
+</p>
+
+<p>
+  <strong>発行・更新申請-証明書有効期限:</strong>
+  <%= @certificate.cert_exp %>
+</p>
+
+<p>
+  <strong>URL期限:</strong>
+  <%= @certificate.url_exp %>
+</p>
+
+<p>
+  <strong>アクセスPIN:</strong>
+  <%= @certificate.access_pin %>
+</p>
+
+<p>
+  <strong>その他送信先アドレス:</strong>
+  <%= @certificate.other_subject_address1 %>
+</p>
+
+<p>
+  <strong>その他送信先アドレス2:</strong>
+  <%= @certificate.other_subject_address2 %>
+</p>
+
+<p>
+  <strong>失効申請-申請ID:</strong>
+  <%= @certificate.revocation_id %>
+</p>
+
+<p>
+  <strong>失効申請-操作ID:</strong>
+  <%= @certificate.revocation_operation_id %>
+</p>
+
+<p>
+  <strong>失効申請-日時:</strong>
+  <%= @certificate.revocation_submitted %>
+</p>
+
+<p>
+  <strong>失効申請-処理完了日時:</strong>
+  <%= @certificate.revocation_completed %>
+</p>
+
+<p>
+  <strong>失効申請-登録担当者ID:</strong>
+  <%= @certificate.revocation_operator_id %>
+</p>
+
+<p>
+  <strong>失効申請-失効理由コード:</strong>
+  <%= @certificate.revocation_reason_code %>
+</p>
+
+<p>
+  <strong>失効申請-失効理由コメント:</strong>
+  <%= @certificate.revocation_reason %>
+</p>
+
+<p>
+  <strong>失効申請-確認項目フラグ:</strong>
+  <%= @certificate.revocation_confirm_code %>
+</p>
+
+<p>
+  <strong>失効申請-トランザクションID:</strong>
+  <%= @certificate.revocation_transaction_id %>
+</p>
+
+<p>
+  <strong>失効申請-認証局連携APIエラーコード:</strong>
+  <%= @certificate.revocation_authority_error_code %>
+</p>
+
+<p>
+  <strong>失効申請-利用管理者mail:</strong>
+  <%= @certificate.revocation_operator_email %>
+</p>
+
+<p>
+  <strong>旧証明書シリアル番号:</strong>
+  <%= @certificate.old_certificate_serial_no %>
+</p>
+
+<p>
+  <strong>証明書リプレース依頼メール送信フラグ:</strong>
+  <%= @certificate.certificate_replace_mail_flag %>
+</p>
+
+<p>
+  <strong>ダウンロード方法:</strong>
+  <%= @certificate.download_method %>
+</p>
+
+<p>
+  <strong>最終更新日:</strong>
+  <%= @certificate.last_updated %>
+</p>
+
+<%= link_to '更新処理', edit_certificate_path(@certificate), class: update_button_class(@certificate) %>
+<%= link_to '失効処理', certificate_path(@certificate), method: :delete, class: delete_button_class(@certificate) %>
+<%= link_to '一覧に戻る', certificates_path, class: "btn btn-primary" %>

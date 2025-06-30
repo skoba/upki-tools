@@ -1,0 +1,242 @@
+<%= form_with(model: certificate) do |form| %>
+  <% if certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+        <% certificate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :apply_id, '発行・更新申請-申請ID', class: 'form-label' %>
+    <%= form.text_field :apply_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operation_id, '発行・更新申請-操作ID', class: 'form-label' %>
+    <%= form.text_field :operation_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :ignore_flag, 'ignoreInvalidRecordフラグ', class: 'form-label' %>
+    <%= form.number_field :ignore_flag, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group row">
+    <%= form.label :subject_dn, '主体者DN', class: 'form-label' %>
+    <%= form.text_field :subject_dn, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :domain_id, 'ドメインID', class: 'form-label' %>
+    <%= form.text_field :domain_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :submitted, '発行・更新申請-日時', class: 'form-label' %>
+    <%= form.datetime_select :submitted, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :completed, '発行・更新申請-処理完了日時', class: 'form-label' %>
+    <%= form.datetime_select :completed, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_id, '発行・更新申請-登録担当者ID', class: 'form-label' %>
+    <%= form.text_field :operator_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :category, '申請種別', class: 'form-label' %>
+    <%= form.number_field :category, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :task_model, '業務モデル', class: 'form-label' %>
+    <%= form.number_field :task_model, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :profile_id, '証明書プロファイルID', class: 'form-label' %>
+    <%= form.text_field :profile_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :status, '状態', class: 'form-label' %>
+    <%= form.number_field :status, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_name, '利用管理者氏名', class: 'form-label' %>
+    <%= form.text_field :operator_name, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_affiliation, '利用管理者所属', class: 'form-label' %>
+    <%= form.text_field :operator_affiliation, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_email, '利用管理者mail', class: 'form-label' %>
+    <%= form.text_field :operator_email, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_fqdn, '利用管理者FQDN', class: 'form-label' %>
+    <%= form.text_field :operator_fqdn, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_software, '利用管理者ソフトウェア名・バージョン', class: 'form-label'  %>
+    <%= form.text_field :operator_software, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :csr, 'CSR', class: 'form-label' %>
+    <%= form.text_field :csr, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :dnsname, 'dNSName', class: 'form-label' %>
+    <%= form.text_field :dnsname, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :comfirmed_items_flag, '発行・更新申請-確認項目フラグ', class: 'form-label' %>
+    <%= form.number_field :comfirmed_items_flag, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :transaction_id, '発行・更新申請-トランザクションID', class: 'form-label' %>
+    <%= form.text_field :transaction_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :api_erro_code, '発行・更新申請-認証局連携APIエラーコード', class: 'form-label' %>
+    <%= form.text_field :api_erro_code, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :cetification, '発行・更新申請-証明書', class: 'form-label' %>
+    <%= form.text_field :cetification, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :serial_no, '発行・更新申請-シリアル番号', class: 'form-label' %>
+    <%= form.text_field :serial_no, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :finger_print, '発行・更新申請-FingerPrint', class: 'form-label' %>
+    <%= form.text_field :finger_print, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :cert_start, '発行・更新申請-証明書有効開始', class: 'form-label' %>
+    <%= form.date_select :cert_start, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :cert_exp, '発行・更新申請-証明書有効期限', class: 'form-label' %>
+    <%= form.date_select :cert_exp, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :url_exp, 'URL期限', class: 'form-label' %>
+    <%= form.date_select :url_exp, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :access_pin, 'アクセスPIN', class: 'form-label' %>
+    <%= form.text_field :access_pin, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :other_subject_address1, 'その他送信先アドレス', class: 'form-label' %>
+    <%= form.text_field :other_subject_address1, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :other_subject_address2, 'その他送信先アドレス2', class: 'form-label' %>
+    <%= form.text_field :other_subject_address2, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_id, '失効申請-申請ID', class: 'form-label' %>
+    <%= form.text_field :revocation_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_submitted, '失効申請-日時', class: 'form-label' %>
+    <%= form.datetime_select :revocation_submitted, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_completed, '失効申請-処理完了日時', class: 'form-label' %>
+    <%= form.datetime_select :revocation_completed, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_operator_id, '失効申請-登録担当者ID', class: 'form-label' %>
+    <%= form.text_field :revocation_operator_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_reason_code, '失効申請-失効理由コード', class: 'form-label' %>
+    <%= form.number_field :revocation_reason_code, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_reason, '失効申請-失効理由コメント', class: 'form-label' %>
+    <%= form.text_field :revocation_reason, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_confirm_code, '失効申請-確認項目フラグ', class: 'form-label' %>
+    <%= form.text_field :revocation_confirm_code, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_transaction_id, '失効申請-トランザクションID', class: 'form-label' %>
+    <%= form.text_field :revocation_transaction_id, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_authority_error_code, '失効申請-認証局連携APIエラーコード', class: 'form-label' %>
+    <%= form.text_field :revocation_authority_error_code, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :revocation_operator_email, '失効申請-利用管理者mail', class: 'form-label' %>
+    <%= form.text_field :revocation_operator_email, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :old_certificate_serial_no, '旧証明書シリアル番号', class: 'form-label' %>
+    <%= form.text_field :old_certificate_serial_no, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :certificate_replace_mail_flag, '証明書リプレース依頼メール送信フラグ', class: 'form-label' %>
+    <%= form.number_field :certificate_replace_mail_flag, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :download_method, 'ダウンロード方法', class: 'form-label' %>
+    <%= form.text_field :download_method, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_updated, '最終更新日', class: 'form-label' %>
+    <%= form.datetime_select :last_updated, disabled: true, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '証明書更新', class: 'btn btn-primary' %>
+  </div>
+<% end %>

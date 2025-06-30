@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  upki-tools:
+    build: .
+    container_name: upki-tools-app
+    ports:
+      - "3000:3000"
+    volumes:
+      # ソースコードをマウント（開発用）
+      - .:/app
+      # データベースを永続化
+      - upki_data:/app/db
+      # ログを永続化
+      - upki_logs:/app/log
+      # 依存関係のキャッシュ
+      - bundle_cache:/usr/local/bundle
+      - node_modules_cache:/app/node_modules
+    environment:
+      - RAILS_ENV=development
+      - BUNDLE_PATH=/usr/local/bundle
+    command: >
+      bash -c "
+        bundle install &&
+        npm install 2>/dev/null || true &&
+        bundle exec rails db:prepare &&
+        bundle exec rails server -b 0.0.0.0
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # 開発用: データベースブラウザ（オプション）
+  db-browser:
+    image: coleifer/sqlite-web
+    container_name: upki-db-browser
+    ports:
+      - "8080:8080"
+    volumes:
+      - upki_data:/data
+    command: sqlite_web /data/development.sqlite3 --host 0.0.0.0 --port 8080
+    depends_on:
+      - upki-tools
+    profiles:
+      - tools
+
+volumes:
+  upki_data:
+    driver: local
+  upki_logs:
+    driver: local
+  bundle_cache:
+    driver: local
+  node_modules_cache:
+    driver: local

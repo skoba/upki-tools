@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ドメイン一覧</h1>
+
+<table class="table table-responsible">
+  <thead>
+    <tr>
+      <th>FQDN</th>
+      <th>証明書期限</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%= domain.full_name %></td>
+        <td><%= '2022-03-07' %></td>
+        <td><%= link_to '詳細', domain %></td>
+        <!-- <td><%= link_to '更新', edit_domain_path(domain) %></td> -->
+        <!-- <td><%= link_to '', domain, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規サーバ登録申請', new_domain_path, class: "btn btn-primary" %>

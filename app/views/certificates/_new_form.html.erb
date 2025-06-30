@@ -1,0 +1,60 @@
+<%= form_with(model: certificate) do |form| %>
+  <% if certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+        <% certificate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <form class="form-horizontal">
+      <div class="field form-group">
+	<%= form.label :operator_fqdn, '申請するサーバのFQDN（必須）', class: 'form-label' %>
+	<%= form.text_field :operator_fqdn, class: 'form-control', required: true %>
+      </div>
+      
+      
+      <div class="field form-group">
+	<%= form.label :operator_name, '管理者氏名', class: 'form-label' %>
+	<%= form.text_field :operator_name, class: 'form-control' %>
+      </div>
+      
+      <div class="field form-group">
+	<%= form.label :operator_affiliation, '管理者所属', class: 'form-label' %>
+	<%= form.text_field :operator_affiliation, class: 'form-control' %>
+      </div>
+      
+      <div class="field form-group">
+	<%= form.label :operator_email, '管理者mail（必須）', class: 'form-label' %>
+	<%= form.text_field :operator_email, class: 'form-control', required: true %>
+      </div>
+      
+      
+      <div class="field form-group">
+	<%= form.label :operator_software, '利用管理者ソフトウェア名・バージョン（必須）', class: 'form-label'  %>
+	<%= form.text_field :operator_software, class: 'form-control', required: true %>
+      </div>
+      
+      <div class="field form-group">
+	<%= form.label :passphrase, 'パスフレーズ', class: 'form-label'  %>
+	<%= form.text_field :passphrase, class: 'form-control' %>
+      </div>
+      
+      <!-- <div class="field form-group"> -->
+	<!--   <%= form.label :dnsname, 'dNSName', class: 'form-label' %> -->
+	<!--   <%= form.text_field :dnsname, class: 'form-control' %> -->
+	<!-- </div> -->
+      
+      
+      <div class="actions">
+	<%= form.submit '新規証明書申請様式ダウンロード', class: 'btn btn-primary' %>
+      </div>
+    </form>
+  </div>
+  <% end %>
+  

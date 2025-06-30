@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>担当者一覧</h1>
+
+<table class='table table-responsbile'>
+  <thead>
+    <tr>
+      <th>氏名</th>
+      <th>部署</th>
+      <th>email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.organization %></td>
+        <td><%= person.email %></td>
+        <td><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規担当者設定', new_person_path, class: 'btn btn-primary' %>

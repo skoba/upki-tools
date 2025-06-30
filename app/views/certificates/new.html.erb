@@ -1,0 +1,6 @@
+<h1>新規証明書申請</h1>
+
+<%= render 'new_form', certificate: @certificate %>
+
+<%= link_to '一覧に戻る', certificates_path, class: "btn btn-primary" %>
+<%= link_to 'UPKIへ', 'https://scia.secomtrust.net/upki-odcert/lra/SSLLogin.do', class: "btn btn-success" %>

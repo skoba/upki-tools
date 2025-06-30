@@ -1,0 +1,64 @@
+<h1>サーバ証明書失効</h1>
+
+<%= form_with(model: @certificate, method: :post, url: {action: 'revoke'}) do |form| %>
+  <% if @certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+        <% certificate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <form class="form-horizontal">
+      <div class="field form-group">
+    <%= form.label :operator_fqdn, '申請するサーバのFQDN（必須）', class: 'form-label' %>
+    <%= form.text_field :operator_fqdn, readonly: true, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= form.label :subject_dn, '主体者DN', class: 'form-label' %>
+    <%= form.text_field :subject_dn, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :serial_no, '発行・更新申請-シリアル番号', class: 'form-label' %>
+    <%= form.text_field :serial_no, readonly: true, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :operator_email, '管理者mail', class: 'form-label' %>
+    <%= form.text_field :operator_email, class: 'form-control' %>
+  </div>
+
+
+  <div class="field form-group">
+    <%= form.label :revocation_reason_code, '失効理由', class: 'form-label'  %>
+    <%= form.select :revocation_reason_code, {'未定義': 0, '鍵の危殆化': 1, '主体DNの変更': 2, '証明書の更新または証明書記載内容の変更': 3, '証明書の利用終了': 4}, class: 'form-control', required: true %>
+  </div>
+  <div class="field form-group">
+    <%= form.label :revocation_reason_code, '失効理由コメント', class: 'form-label'  %>
+    <%= form.text_field  :revocation_reason, class: 'form-control' %>
+  </div>
+  <!-- <strong>失効理由コメント:</strong> -->
+  <!-- <%= @certificate.revocation_reason %> -->
+
+
+
+  <!-- <div class="field form-group"> -->
+  <!--   <%= form.label :dnsname, 'dNSName', class: 'form-label' %> -->
+  <!--   <%= form.text_field :dnsname, class: 'form-control' %> -->
+  <!-- </div> -->
+
+
+  <div class="actions">
+    <%= form.submit '失効申請様式ダウンロード', class: 'btn btn-primary' %>
+  </div>
+  </div>
+<% end %>
+<%= link_to 'サーバ詳細', @certificate, class: "btn btn-primary" %> 
+<%= link_to '一覧に戻る', certificates_path, class: "btn btn-primary" %>
+<%= link_to 'UPKIへ', 'https://scia.secomtrust.net/upki-odcert/lra/SSLLogin.do', class: "btn btn-success" %>

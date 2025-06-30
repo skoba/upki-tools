@@ -1,0 +1,2 @@
+module BatchRevocationHelper
+end
