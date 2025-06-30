@@ -279,7 +279,6 @@ SQLite3データベースファイル `db/development.sqlite3` を定期的に�
 ### 簡単な貢献方法
 - 🐛 バグ報告や機能要求は[Issues](https://github.com/skoba/upki-tools/issues)へ
 - 💡 改善提案や質問は[Discussions](https://github.com/skoba/upki-tools/discussions)へ
-- 🔒 セキュリティ関連の報告は直接メール（skoba@moss.gr.jp）へ
 
 ### ⚠️ セキュリティ警告
 **重要**: Issues報告時は**絶対に秘密鍵・実際の証明書・パスワード**を含めないでください。詳細は[CONTRIBUTING.md](CONTRIBUTING.md#️-セキュリティ関連の重要な注意事項)を必読。
