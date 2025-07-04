@@ -102,6 +102,25 @@ RSpec.describe CertificatesController, type: :request do
           post certificates_path, params: { certificate: valid_attributes }
         }.not_to change(Certificate, :count)
       end
+      
+      # TDD Red Phase: Test for browser file download compatibility
+      it 'should not be processed as TURBO_STREAM for file downloads' do
+        # Simulate regular HTML form submission (not Turbo)
+        post certificates_path, params: { certificate: valid_attributes }, headers: { 'Accept' => 'text/html' }
+        
+        expect(response).to have_http_status(:ok)
+        expect(response.content_type).to eq('application/zip')
+        
+        # Should not render as TURBO_STREAM
+        expect(response.body).not_to include('<turbo-stream')
+      end
+      
+      it 'should accept passphrase parameter without unpermitted parameter warning' do
+        # This test will initially fail because passphrase is not permitted
+        expect {
+          post certificates_path, params: { certificate: valid_attributes }
+        }.not_to output(/Unpermitted parameter: :passphrase/).to_stdout_from_any_process
+      end
     end
 
     context 'with invalid parameters' do

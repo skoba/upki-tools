@@ -114,8 +114,8 @@ class CertificatesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    # パスフレーズは意図的に除外（データベースに保存しない）
+    # passphraseは許可するが.except(:passphrase)で明示的に除外してデータベースに保存しない
     def certificate_params
-      params.require(:certificate).permit(:id, :apply_id, :operation_id, :ignore_flag, :subject_dn, :domain_id, :submitted, :completed, :operator_id, :category, :task_model, :profile_id, :status, :operator_name, :operator_affiliation, :operator_email, :operator_fqdn, :operator_software, :csr, :dnsname, :comfirmed_items_flag, :transaction_id, :api_erro_code, :cetification, :serial_no, :finger_print, :cert_start, :cert_exp, :access_pin, :other_subject_address1, :other_subject_address2, :revocation_id, :revocation_submission, :revocation_completed, :revocation_operator_id, :revocation_reason_code, :revocation_reason, :revocation_confirm_code, :revocation_transaction_id, :revocation_authority_error_code, :revocation_operator_email, :old_certificate_serial_no, :certificate_replace_mail_flag, :download_method, :last_updated, :upload_file)
+      params.require(:certificate).permit(:id, :apply_id, :operation_id, :ignore_flag, :subject_dn, :domain_id, :submitted, :completed, :operator_id, :category, :task_model, :profile_id, :status, :operator_name, :operator_affiliation, :operator_email, :operator_fqdn, :operator_software, :csr, :dnsname, :comfirmed_items_flag, :transaction_id, :api_erro_code, :cetification, :serial_no, :finger_print, :cert_start, :cert_exp, :access_pin, :other_subject_address1, :other_subject_address2, :revocation_id, :revocation_submission, :revocation_completed, :revocation_operator_id, :revocation_reason_code, :revocation_reason, :revocation_confirm_code, :revocation_transaction_id, :revocation_authority_error_code, :revocation_operator_email, :old_certificate_serial_no, :certificate_replace_mail_flag, :download_method, :last_updated, :upload_file, :passphrase)
     end
 end
