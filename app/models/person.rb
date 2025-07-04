@@ -1,3 +1,3 @@
 class Person < ApplicationRecord
-  belongs_to :domain
+  has_many :domains
 end

@@ -1,4 +1,4 @@
-<%= form_with(model: certificate) do |form| %>
+<%= form_with(model: certificate, local: true) do |form| %>
   <% if certificate.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
@@ -42,7 +42,7 @@
       
       <div class="field form-group">
 	<%= form.label :passphrase, 'パスフレーズ', class: 'form-label'  %>
-	<%= form.text_field :passphrase, class: 'form-control' %>
+	<%= form.password_field :passphrase, class: 'form-control' %>
       </div>
       
       <!-- <div class="field form-group"> -->

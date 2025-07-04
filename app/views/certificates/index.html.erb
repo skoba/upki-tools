@@ -46,7 +46,7 @@
 	   <% end %>
 	 </td>
         <td><%= certificate.operator_fqdn %></td>
-        <td><%= certificate.submitted.to_s(:jp_order) %></td>
+        <td><%= certificate.submitted&.strftime('%Y/%m/%d %H:%M:%S') %></td>
         <td><%= certificate.operator_name %></td>
         <td><%= certificate.operator_email %></td>
         <td><%= certificate.operator_software %></td>

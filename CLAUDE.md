@@ -2,9 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+開発の全家庭を通じてt-wada氏が提唱するTDDフレームワークをrspecを使って忠実に実行してください。
+
 ## Project Overview
 
 This is a Ruby on Rails web application for managing SSL certificates within the Japanese University PKI (UPKI) system. The application handles certificate lifecycle management including CSR generation, issuance, renewal, and revocation, developed by the Medical Open Source Software Consortium.
+
+安全のため秘密鍵は生成されても、一時的にメモリ内で処理されるだけで絶対にデータベースに保存されない。パスフレーズも同様にデータベースには保存しない。
 
 ## Development Commands
 

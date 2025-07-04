@@ -1,4 +1,4 @@
 class Domain < ApplicationRecord
   has_many :certificates
-  has_many :people
+  belongs_to :person
 end

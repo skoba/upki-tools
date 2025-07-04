@@ -5,6 +5,10 @@ require 'date'
 class Certificate < ApplicationRecord
 #  attr_accessor :software
 
+  validates :operator_fqdn, presence: true
+  validates :operator_email, presence: true
+  validates :operator_software, presence: true
+
   def cipher_key
     @cipher_key ||= OpenSSL::PKey::RSA.generate(2048)
   end
