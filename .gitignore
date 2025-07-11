@@ -82,6 +82,8 @@ auto-save-list
 /config/database.yml.production
 /config/application.yml
 /config/*.local
+/config/credentials.yml.enc
+/config/credentials.yml.key
 .env
 .env.local
 .env.production
